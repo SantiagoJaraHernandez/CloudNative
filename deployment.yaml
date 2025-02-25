@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hola-mundo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hola-mundo
+  template:
+    metadata:
+      labels:
+        app: hola-mundo
+    spec:
+      containers:
+      - name: hola-mundo-container
+        image: santiagojara/hola-mundo-cloud-native:1.0
+        ports:
+        - containerPort: 5000

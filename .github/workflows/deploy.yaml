@@ -1,0 +1,29 @@
+name: Desplegar aplicación Cloud Native
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v2
+
+    - name: Construir imagen de Docker
+      run: docker build -t santiagojara/hola-mundo-cloud-native:latest .
+
+    - name: Iniciar sesión en Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+    - name: Subir imagen a Docker Hub
+      run: docker push santiagojara/hola-mundo-cloud-native:latest
+
+    - name: Desplegar en Kubernetes
+      run: |
+        echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
+        export KUBECONFIG=kubeconfig.yaml
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
