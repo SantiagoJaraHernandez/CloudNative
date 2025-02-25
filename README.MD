@@ -129,30 +129,3 @@ jobs:
 ## Licencia
 
 Este proyecto está bajo la licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
-EOF
-```
-
----
-
-### **Cómo Usar Este Bloque de Código**
-
-1. Abre tu terminal.
-2. Navega a la carpeta raíz de tu proyecto.
-3. Copia y pega el bloque de código anterior en tu terminal.
-4. Esto creará automáticamente un archivo `README.md` con todo el contenido necesario.
-
----
-
-### **Verificación**
-
-Para asegurarte de que el archivo se creó correctamente, puedes ejecutar:
-
-```bash
-cat README.md
-```
-
-Esto mostrará el contenido del archivo `README.md` en la terminal.
-
----
-
-¡Y eso es todo! Ahora tienes un archivo `README.md` completo y bien documentado en tu proyecto. Si necesitas más ayuda, ¡no dudes en preguntar! 😊
